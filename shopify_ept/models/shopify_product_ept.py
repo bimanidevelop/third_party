@@ -258,7 +258,7 @@ class ShopifyProductProductEpt(models.Model):
         common_log_obj = self.env["common.log.book.ept"]
         common_log_line_obj = self.env["common.log.lines.ept"]
         model = "shopify.product.product.ept"
-        model_id = common_log_line_obj.get_model_id(model)
+        model_id = common_log_line_obj.sudo().get_model_id(model)
         instance.connect_in_shopify()
         log_book_id = common_log_obj.shopify_create_common_log_book("export", instance, model_id)
 
